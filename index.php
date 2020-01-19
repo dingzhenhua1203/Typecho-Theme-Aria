@@ -46,13 +46,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                         else
                             $this->excerpt(50, '...');
                     ?></div>
-                <div class="card-line"></div>
-                <!--l<ul class="card-meta-bottom">
-                    <li class="card-meta-label card-meta-more"><a href="<?php $this->permalink(); ?>" title="Read More" target="_blank"><i class="iconfont icon-aria-more"></i><i class="iconfont icon-aria-more"></i></a></li>
-                    <li class="card-meta-label card-meta-views card-meta-right"><i class="iconfont icon-aria-view"></i>  <?php  //Contents::getPostView($this); ?> </li>
-                    <li class="card-meta-label card-meta-comments card-meta-right"><i class="iconfont icon-aria-comment"></i> <?php $this->commentsNum('%d'); ?></li>
-                    <!--li class="card-meta-label card-meta-likes"></li-->
-                <!--</ul>-->
             </article>
 	<?php endwhile; ?>
 
