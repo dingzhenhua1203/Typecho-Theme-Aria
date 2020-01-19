@@ -4,7 +4,16 @@
 ![screenshot](https://github.com/Siphils/Typecho-Theme-Aria/blob/master/screenshot.png?raw=true)  
 ## 使用方法  
 [Wiki](https://eriri.ink/archives/Aria-manual.html)  
+
+## 本人更新，非作者更新
+### 2020-01-19 2.0
+* **由本人dingzhenhua自行更新代码，非主题作者更新** 
+* 优化首页加载时间，移除文章的访问数统计，会导致加载超过5s
+* 增加分类导航，并优化Utils中获取分类的代码
+* 增加首页底部网站运行时间
+
 ## 更新  
+
 ### 2019-2-23 1.9.0  
 * **警告：由于部分配置变量名修改，部分配置信息可能丢失，请更新前先做数据库或配置信息备份**  
 * 移除了评论框图片  
