@@ -6,8 +6,15 @@
 <div id="go-top" onclick="goTop(this);"><img no-lazyload src="<?php $this->options->themeUrl('assets/img/goTop.png'); ?>"><!--div id="scroll-percentage"></div--></div>
 <footer id="footer" role="contentinfo">
     <?php $this->options->customFooter(); ?>
+    <p> 本站已勉强运行了： <?php getBuildTime(); ?></p>
     <?php if(Utils::isEnabled('showHitokoto','AriaConfig')): ?><p id="hitokoto"></p><?php endif; ?>
     <p id="footer-info">&copy; <span><?php echo $this->options->cpr ? $this->options->cpr : date('Y'); ?></span><?php Utils::getFooterWidget(); ?></p>
+
+<div >
+<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img no-lazyload  height="45" width="100" src="/ypyun_logo.png"></a>
+</div>
+</div> 
+ 
 </footer><!-- end #footer -->
 <?php if(Utils::isEnabled('enablePjax','AriaConfig')): ?>
 <script src="<?php $this->options->themeUrl('assets/js/jquery.pjax.min.js'); ?>"></script>

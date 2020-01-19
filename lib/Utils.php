@@ -238,7 +238,9 @@ class Utils
 
         if ($data) {
             $html = '';
-            if ($mode) {
+            $navclass=$mode?"nav-right-item":"nav-vertical-item";
+            $ulSubclass=$mode?"nav-sub":"nav-vertical-sub";
+            $lisubClass=$mode?"sub-item":"vertical-sub-item";
                 foreach ($data as $v) {
                     $text = array_key_exists('text', $v) ? $v['text'] : "";
                     $href = array_key_exists('href', $v) ? 'href="' . $v['href'] . '"' : "";
@@ -249,9 +251,9 @@ class Utils
                         $href = 'href="' . $slug['permarlink'] . '"';
                         $text = $slug['title'];
                     }
-                    $html .= "<li class=\"nav-right-item\"><a $href $target><i $icon></i>$text</a>";
+                    $html .= "<li class=$navclass><a $href $target><i $icon></i>$text</a>";
                     if (array_key_exists('sub', $v)) {
-                        $html .= '<ul class="nav-sub">';
+                        $html .= "<ul class=$ulSubclass>";
                         foreach ($v['sub'] as $_k => $_v) {
                             $text = array_key_exists('text', $_v) ? $_v['text'] : "";
                             $href = array_key_exists('href', $_v) ? 'href="' . $_v['href'] . '"' : "";
@@ -262,44 +264,21 @@ class Utils
                                 $href = 'href="' . $slug['permarlink'] . '"';
                                 $text = $slug['title'];
                             }
-                            $html .= "<li class=\"sub-item\"><a $href $target><i $icon></i>$text</a></li>";
+                            $html .= "<li class=$lisubClass><a $href $target><i $icon></i>$text</a></li>";
                         }
                         $html .= "</ul>";
                     }
                     $html .= "</li>";
                 }
-            } else {
-                foreach ($data as $v) {
-                    $text = array_key_exists('text', $v) ? $v['text'] : "";
-                    $href = array_key_exists('href', $v) ? 'href="' . $v['href'] . '"' : "";
-                    $icon = array_key_exists('icon', $v) ? 'class="' . $v['icon'] . '"' : "";
-                    $target = array_key_exists('target', $v) ? 'target="' . $v['target'] . '"' : "";
-                    $slug = (array_key_exists('slug', $v) && $slugs && array_key_exists($v['slug'], $slugs)) ? $slugs[$v['slug']] : false;
-                    if ($slug) {
-                        $href = 'href="' . $slug['permarlink'] . '"';
-                        $text = $slug['title'];
-                    }
-                    $html .= "<li class=\"nav-vertical-item\"><a $href $target><i $icon></i>  $text</a>";
-                    if (array_key_exists('sub', $v)) {
-                        $html .= '<ul class="nav-vertical-sub">';
-                        foreach ($v['sub'] as $_k => $_v) {
-                            $text = array_key_exists('text', $_v) ? $_v['text'] : "";
-                            $href = array_key_exists('href', $_v) ? 'href="' . $_v['href'] . '"' : "";
-                            $icon = array_key_exists('icon', $_v) ? 'class="' . $_v['icon'] . '"' : "";
-                            $target = array_key_exists('target', $_v) ? 'target="' . $_v['target'] . '"' : "";
-                            $slug = (array_key_exists('slug', $_v) && $slugs && array_key_exists($_v['slug'], $slugs)) ? $slugs[$_v['slug']] : false;
-                            if ($slug) {
-                                $href = 'href="' . $slug['permarlink'] . '"';
-                                $text = $slug['title'];
-                            }
-                            $html .= "<li class=\"vertical-sub-item\"><a $href $target><i $icon></i>  $text</a></li>";
-                        }
-                        $html .= "</ul>";
-                    }
-                    $html .= "</li>";
+                $html .= "<li class=$navclass><a href='#' ><i class='iconfont icon-aria-category'></i>分类</a>";
+                $html .= "<ul class=$ulSubclass>";
+                $category = Typecho_Widget::widget('Widget_Metas_Category_List')->to($category);
+                while(!empty($category->next())){
+                    $html .= "<li class=$lisubClass><a class='nav-link' href=$category->permalink >$category->name</a></li>";  
                 }
-            }
-
+               
+                $html .= "</ul>";
+                $html .= "</li>";
             echo $html;
         }
         //转换失败
