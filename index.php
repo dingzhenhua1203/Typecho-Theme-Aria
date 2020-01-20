@@ -14,7 +14,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  $this->need('header.php');
  ?>
 
-<div id="main" class="col-mb-12 col-8 col-offset-2" >
+<div id="main" class="col-mb-12 col-8 col-offset-1" >
 	<?php while($this->next()): ?>
             <article itemscope itemtype="http://schema.org/BlogPosting" class="card animated wow fadeIn" data-wow-duration="1s" data-wow-offset="10">
                 <div class="card-title">
@@ -52,6 +52,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         <?php $this->pageNav('<', '>',1,'...',array('wrapTag' => 'ul', 'wrapClass' => '','itemTag' => 'li','currentClass' => 'page-current',)); ?>  
      </div>
 </div><!-- end #main-->
-
+<?php $this->need('sidebar.php'); ?>
 <?php $this->need('footer.php'); ?>
 

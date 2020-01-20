@@ -30,6 +30,13 @@ echo '<div class="tip"><span class="current-ver"><strong><code>Ver ' . ARIA_VERS
     $avatarUrl = new Typecho_Widget_Helper_Form_Element_Text('avatarUrl', null, null, _t('站点头像'), _t('在这里填入一个图片URL地址, 以在网站标题前加上一个头像,需要带上http(s)://'));
     $form->addInput($avatarUrl);
 
+    $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarBlock', 
+    array('ShowRecentPosts' => _t('显示最新文章'),
+    'ShowRecentComments' => _t('显示最近回复')),
+    array('ShowRecentPosts', 'ShowRecentComments', 'ShowCategory'), _t('侧边栏显示'));
+    
+    $form->addInput($sidebarBlock->multiMode());
+
     $defaultThumbnail = new Typecho_Widget_Helper_Form_Element_Textarea('defaultThumbnail', null, null, _t('默认文章缩略图'), _t('填入默认的缩略图地址，未设置缩略图字段时调用此地址，需要带http(s)://，每一行写一个URL，随机展示'));
     $form->addInput($defaultThumbnail);
 
