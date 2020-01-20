@@ -46,6 +46,11 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                         else
                             $this->excerpt(50, '...');
                     ?></div>
+                <div class="card-line"></div>
+                <ul class="card-meta-bottom">
+                    <li class="card-meta-label card-meta-views card-meta-right"><i class="iconfont icon-aria-view"></i> 你猜</li>
+                    <li class="card-meta-label card-meta-comments card-meta-right"><i class="iconfont icon-aria-comment"></i> <?php $this->commentsNum('%d'); ?></li>
+                </ul>
             </article>
 	<?php endwhile; ?>
 
