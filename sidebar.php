@@ -1,8 +1,16 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <div class="col-mb-12 col-3" id="secondary" role="complementary">
+    <?php if (!empty($this->options->sidebarBlock) && in_array('ShowHotPosts', $this->options->sidebarBlock)): ?>
+    <section class="widget">
+        <h3 class="widget-title"><?php _e('热门文章'); ?></h3>
+        <ul class="widget-list">
+            <? TePostViews_Plugin::outputHotPosts() ?>
+        </ul>
+    </section>
+    <?php endif; ?>
     <?php if (!empty($this->options->sidebarBlock) && in_array('ShowRecentPosts', $this->options->sidebarBlock)): ?>
     <section class="widget paddingall">
-		<h5 class="widget-title"><?php _e('最新文章'); ?></h5>
+		<h3 class="widget-title"><?php _e('最新文章'); ?></h3>
         <ul class="widget-list">
            <?php $this->widget('Widget_Contents_Post_Recent')
             ->parse('<li><a href="{permalink}">{title}</a></li>'); ?>
@@ -11,7 +19,7 @@
     <?php endif; ?>
     <?php if (!empty($this->options->sidebarBlock) && in_array('ShowRecentComments', $this->options->sidebarBlock)): ?>
     <section class="widget paddingall">
-		<h5 class="widget-title"><?php _e('最近回复'); ?></h5>
+		<h3 class="widget-title"><?php _e('最近回复'); ?></h3>
         <ul class="widget-list RecentReply zface-box">
         <?php $this->widget('Widget_Comments_Recent','ignoreAuthor=true')->to($comments); ?>
         <?php while($comments->next()): ?>

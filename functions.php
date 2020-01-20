@@ -31,7 +31,8 @@ echo '<div class="tip"><span class="current-ver"><strong><code>Ver ' . ARIA_VERS
     $form->addInput($avatarUrl);
 
     $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarBlock', 
-    array('ShowRecentPosts' => _t('显示最新文章'),
+    array('ShowHotPosts'=> _t('显示热门文章'),
+    'ShowRecentPosts' => _t('显示最新文章'),
     'ShowRecentComments' => _t('显示最近回复')),
     array('ShowRecentPosts', 'ShowRecentComments', 'ShowCategory'), _t('侧边栏显示'));
     
