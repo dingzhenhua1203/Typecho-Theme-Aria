@@ -33,7 +33,8 @@ echo '<div class="tip"><span class="current-ver"><strong><code>Ver ' . ARIA_VERS
     $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarBlock', 
     array('ShowHotPosts'=> _t('显示热门文章'),
     'ShowRecentPosts' => _t('显示最新文章'),
-    'ShowRecentComments' => _t('显示最近回复')),
+    'ShowRecentComments' => _t('显示最近回复'),
+    'ShowTag'=> _t('显示标签云')),
     array('ShowRecentPosts', 'ShowRecentComments', 'ShowCategory'), _t('侧边栏显示'));
     
     $form->addInput($sidebarBlock->multiMode());
@@ -171,6 +172,23 @@ function themeInit($archive)
         die();
     } else {return;}
 }
+
+function Contents_Post_Initial($limit = 10, $order = 'created') {
+	$db = Typecho_Db::get();
+	$options = Helper::options();
+	$posts = $db->fetchAll($db->select()->from('table.contents')
+		->where('type = ? AND status = ? AND created < ?', 'post', 'publish', $options->time)
+		->order($order, Typecho_Db::SORT_DESC)
+		->limit($limit), array(Typecho_Widget::widget('Widget_Abstract_Contents'), 'filter'));
+	if ($posts) {
+		foreach($posts as $post) {
+			echo '<li><a'.($post['hidden'] && $options->PjaxOption ? '' : ' href="'.$post['permalink'].'"').'>'.htmlspecialchars($post['title']).'</a></li>'."\n";
+		}
+	} else {
+		echo '<li>暂无文章</li>'."\n";
+	}
+}
+
 
 // 网站运行时间
 date_default_timezone_set('Asia/Shanghai');
