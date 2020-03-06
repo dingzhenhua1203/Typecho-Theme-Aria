@@ -20,9 +20,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                 <div class="card-title">
                     <a href="<?php $this->permalink(); ?>"><?php $this->sticky();$this->title(); ?></a>
                 </div>
-                <div class="card-meta-top">
-                    <span class="card-meta-cate"><i class="iconfont icon-aria-category"></i> <?php $this->category(' • ',true,'无'); ?></span><span class="card-meta-date"><i class="iconfont icon-aria-date"></i> <?php $this->date(); ?></span>
-                </div>
                 <a href="<?php $this->permalink(); ?>">
                     <?php if(Utils::isEnabled('enableLazyload','AriaConfig')): ?>
                     <div class="card-thumbnail lazyload" data-original=<?php if($this->fields->thumbnail)
@@ -40,11 +37,12 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                     </div>
                     <?php endif; ?>
                 </a>
-                <ul class="card-meta-bottom">
-                    <li class="card-meta-label card-meta-views card-meta-right"><i class="iconfont icon-aria-view"></i> 你猜</li>
+               <ul class="card-meta-bottom">
+                    <li class="card-meta-label card-meta-views card-meta-left"> <span class="card-meta-cate"><i class="iconfont icon-aria-category"></i> <?php $this->category(' ',true,'无'); ?></span><span class="card-meta-date"><i class="iconfont icon-aria-date"></i> <?php $this->date(); ?></span></li>
+                    <li class="card-meta-label card-meta-views card-meta-right"><i class="iconfont icon-aria-view"></i> **</li>
                     <li class="card-meta-label card-meta-comments card-meta-right"><i class="iconfont icon-aria-comment"></i> <?php $this->commentsNum('%d'); ?></li>
                     <li class="card-meta-label card-meta-likes"></li>
-                </ul>
+                </ul> 
             </article>
 	<?php endwhile; ?>
 
