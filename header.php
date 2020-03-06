@@ -73,12 +73,6 @@
 </div>
 <div id="pjax-container">
 <style><?php if($this->is('post') || $this->is('page') || $this->is('single') || $this->is('archive')):; ?>#header {height: 70vh;}@media (max-width:768px) {#header {height: 40vh;}}#site-meta {display: none;}<?php endif; ?>#background {width: 100%;height: 100%;background: url(<?php 
-                    if($this->is('post') || $this->is('page') || $this->is('single'))                         
-                        if($this->fields->thumbnail)
-                            $this->fields->thumbnail(); 
-                        else
-                            echo Utils::getThumbnail();
-                    else
                         Utils::getBackground();
                 ?>) center center no-repeat;background-size: cover;z-index: -1;position: relative;}</style>
 <header id="header" class="clearfix animated fadeInDown">
