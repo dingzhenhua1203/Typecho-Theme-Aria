@@ -1,0 +1,35 @@
+.articalSite {
+	transform: translate(-50%,-50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 10;
+	text-align: center;
+	border-radius: .5rem;
+	width: 100%;
+	padding: 30px 10px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+
+.articalTitle {
+    color:#fff;
+    text-shadow: 0 0 5px #c3c3c3;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: .75rem;
+    font-size: 1.5625rem
+}
+
+.articalDescription {
+    color:#eee;
+    text-shadow: 0 0 5px #c3c3c3;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: .75rem;
+    font-size:.875rem
+}

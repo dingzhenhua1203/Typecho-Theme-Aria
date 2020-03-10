@@ -17,10 +17,10 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 <div id="main" class="col-mb-12 col-8 col-offset-1" >
 	<?php while($this->next()): ?>
             <article itemscope itemtype="http://schema.org/BlogPosting" class="card animated wow fadeIn" data-wow-duration="1s" data-wow-offset="10">
-                <div class="card-title">
-                    <a href="<?php $this->permalink(); ?>"><?php $this->sticky();$this->title(); ?></a>
-                </div>
                 <a href="<?php $this->permalink(); ?>">
+                <div >
+                    <?php $this->sticky(); ?>
+                </div>
                     <?php if(Utils::isEnabled('enableLazyload','AriaConfig')): ?>
                     <div class="card-thumbnail lazyload" data-original=<?php if($this->fields->thumbnail)
                                 $this->fields->thumbnail();
@@ -36,11 +36,14 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                         ?>) center center no-repeat;background-size: 100% auto;">
                     </div>
                     <?php endif; ?>
+                    <div class="articalSite">
+                        <a class='articalTitle' href="<?php $this->permalink(); ?>"><?php $this->title(); ?></a>
+                        <div class='articalDescription'>
+                                <span> <?php $this->date(); ?>・</span><span><?php  $this->category('・',false,'无');   ?>・</span>
+                                <span ><i class="iconfont icon-aria-comment"></i> <?php $this->commentsNum('%d'); ?> </span>
+                        </div> 
+                    </div>
                 </a>
-               <ul class="card-meta-bottom">
-                    <li class="card-meta-label card-meta-views card-meta-left"> <span class="card-meta-cate"><i class="iconfont icon-aria-category"></i> <?php $this->category(' ',true,'无'); ?></span><span class="card-meta-date"><i class="iconfont icon-aria-date"></i> <?php $this->date(); ?></span></li>
-                    <li class="card-meta-label card-meta-comments card-meta-right"><i class="iconfont icon-aria-comment"></i> <?php $this->commentsNum('%d'); ?></li>
-                </ul> 
             </article>
 	<?php endwhile; ?>
 

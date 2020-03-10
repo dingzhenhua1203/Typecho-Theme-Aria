@@ -25,6 +25,7 @@
 	<?php if(Utils::isEnabled('enableFancybox','AriaConfig')): ?>
 	<link href="<?php $this->options->themeUrl('assets/css/jquery.fancybox.min.css'); ?>" rel="stylesheet">
     <?php endif; ?>
+    <link href="<?php $this->options->themeUrl('assets/css/dzhCustom.css'); ?>" rel="stylesheet">
 	<link href="<?php $this->options->themeUrl('assets/OwO/OwO.min.css'); ?>" rel="stylesheet">
 	<link href="<?php $this->options->themeUrl('assets/css/animate.min.css'); ?>" rel="stylesheet">
     <link href="<?php $this->options->themeUrl('assets/css/iconfont.css'); ?>" rel="stylesheet" >
