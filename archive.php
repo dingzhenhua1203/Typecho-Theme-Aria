@@ -15,7 +15,7 @@
         ), '', ''); ?>
     </div>
     <?php while($this->next()): ?>
-        <article itemscope itemtype="http://schema.org/BlogPosting" class="card animated wow fadeIn" data-wow-duration="1s" data-wow-offset="10">
+        <article itemscope itemtype="http://schema.org/BlogPosting" class="card animated wow fadeIn" data-wow-duration="1s" data-wow-offset="10" style='padding:10px ;margin:40px auto;'>
                 <a href="<?php $this->permalink(); ?>">
                 <div >
                     <?php $this->sticky(); ?>
