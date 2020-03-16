@@ -188,39 +188,3 @@ function Contents_Post_Initial($limit = 10, $order = 'created') {
 		echo '<li>暂无文章</li>'."\n";
 	}
 }
-
-
-// 网站运行时间
-date_default_timezone_set('Asia/Shanghai');
-function getBuildTime(){
-// 在下面按格式输入本站创建的时间
-$site_create_time = strtotime('2019-10-31 00:00:00');
-$time = time() - $site_create_time;
-if(is_numeric($time)){
-$value = array(
-"years" => 0, "days" => 0, "hours" => 0,
-"minutes" => 0, "seconds" => 0,
-);
-if($time >= 31556926){
-$value["years"] = floor($time/31556926);
-$time = ($time%31556926);
-}
-if($time >= 86400){
-$value["days"] = floor($time/86400);
-$time = ($time%86400);
-}
-if($time >= 3600){
-$value["hours"] = floor($time/3600);
-$time = ($time%3600);
-}
-if($time >= 60){
-$value["minutes"] = floor($time/60);
-$time = ($time%60);
-}
-$value["seconds"] = floor($time);
-
-echo '<span class="btime">'.$value['years'].'年'.$value['days'].'天'.$value['hours'].'小时'.$value['minutes'].'分</span>';
-}else{
-echo '';
-}
-}
