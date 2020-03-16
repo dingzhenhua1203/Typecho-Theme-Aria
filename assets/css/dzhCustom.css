@@ -1,21 +1,23 @@
 .articalSite {
-	transform: translate(-50%,-50%);
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	z-index: 10;
-	text-align: center;
-	border-radius: .5rem;
-	width: 100%;
-	padding: 30px 10px;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
+    transform: translate(-50%, -50%);
+    /*往上（x轴）,左（y轴）移动自身长宽的 50%，以使其居于中心位置*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    /*z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。仅能在定位元素上奏效（例如 position:absolute;）*/
+    text-align: center;
+    border-radius: .5rem;
+    /*给元素添加圆角的边框*/
+    width: 100%;
+    padding: 30px 10px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
-
 .articalTitle {
-    color:#fff;
+    color: #fff;
     text-shadow: 0 0 5px #c3c3c3;
     font-weight: 400;
     text-align: center;
@@ -25,11 +27,100 @@
 }
 
 .articalDescription {
-    color:#eee;
+    color: #eee;
     text-shadow: 0 0 5px #c3c3c3;
     font-weight: 400;
     text-align: center;
     margin-top: 5px;
-    margin-bottom: .75rem;
-    font-size:.875rem
+    margin-bottom: .95rem;
+    font-size: 1.2rem
 }
+
+.widgetbox {
+    width: 100%;
+    margin: 15px 0 15px 0;
+    padding: 0 0 12px 0;
+    background: #fff;
+    /* rgb(255,255,255,0.8) */
+    overflow: hidden;
+    /*定义溢出元素内容区的内容会如何处理。如果值为 scroll，不论是否需要，用户代理都会提供一种滚动机制,hidden:内容会被修剪，并且其余内容是不可见的,可以配合white-space和text-overflow使用*/
+    _display: inline;
+    border-radius: 7px;
+    -webkit-box-shadow: 0 0 5px #ddd;
+    -moz-box-shadow: 0 0 5px #ddd;
+    box-shadow: 0 0 5px #ddd;
+    _border: 1px dashed #ddd
+}
+
+.widgetbox-title {
+    text-align: center;
+    margin: 5px 0 5px 0;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: .77
+}
+
+.widgetbox ul {
+    padding: 1px 1px;
+    margin: 1px;
+    list-style: none;
+    background-color: transparent
+}
+
+.widgetbox li {
+    border-bottom: 1px dashed #dedede;
+    display: block;
+    overflow: hidden;
+    /*定义溢出元素内容区的内容如何处理。hidden:内容会被修剪，并且其余内容是不可见的,可以配合white-space和text-overflow使用*/
+    white-space: nowrap;
+    /*规定文本不进行换行*/
+    text-overflow: ellipsis;
+    /*当对象内文本溢出时显示省略标记（...）*/
+    padding: 7px 0 5px 0;
+    position: relative;
+    width: 250px;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    transition: all 1;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: .77
+}
+
+.widgetbox li:hover {
+    background-color: rgba(221, 217, 233, 0.77)
+}
+
+.widgetbox a:hover {
+    color: #ff8c83;
+}
+
+.widgetbox-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: .77
+}
+
+
+/*
+.widgetbox-img {
+    text-align: center;
+    padding-top: 1em
+}
+
+.widgetbox-body{text-align:center;word-wrap:break-word;padding:0px 16px 1px 16px}
+
+.widgetbox-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: .77
+}
+*/
