@@ -1,4 +1,4 @@
-<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
+﻿<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 </div><!-- end .row -->
 </div><!-- end .container -->
 </div><!-- end #body -->
@@ -30,6 +30,7 @@
     </script>
     <?php if (Utils::isEnabled('showHitokoto', 'AriaConfig')) : ?><p id="hitokoto"></p><?php endif; ?>
     <p id="footer-info">&copy; <span><?php echo $this->options->cpr ? $this->options->cpr : date('Y'); ?></span><?php Utils::getFooterWidget(); ?></p>
+    <span><a href="https://dcmickey.cn/sitemap.xml"> • 站点地图</span>
     <span><a href="http://www.beian.miit.gov.cn/"> • 苏ICP备xxxxx号</span>
     <div>
         <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img no-lazyload height="45" width="100" src="/ypyun_logo.png"></a>
